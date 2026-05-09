@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { supabase } from '../SupabaseCliente'
 import { useNavigate } from 'react-router-dom'
 import Header from '../Pages/Header.jsx'
-import '../Estilos/Crearpropiedad.css'
+import '../Estilos/CrearPropiedad.css'
 
 const CATEGORIAS = ['alcoba', 'baño', 'sala', 'comedor', 'cocina']
 

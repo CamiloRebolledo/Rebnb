@@ -1,0 +1,702 @@
+/* ── BASE ── */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+.loading-screen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  height: 60vh;
+  font-size: 1.1rem;
+  color: #666;
+}
+
+.spinner {
+  width: 22px; height: 22px;
+  border: 3px solid #eee;
+  border-top-color: #4f8ef7;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  display: inline-block;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ── HERO ── */
+.detalle-hero {
+  position: relative;
+  width: 100%;
+  height: 420px;
+  overflow: hidden;
+}
+
+.hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.1) 60%);
+  display: flex;
+  align-items: flex-end;
+}
+
+.hero-content {
+  padding: 2rem;
+  color: #fff;
+}
+
+.hero-badge {
+  background: #4f8ef7;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 20px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.hero-title {
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  font-weight: 700;
+  margin-bottom: 6px;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}
+
+.hero-location {
+  font-size: 0.95rem;
+  opacity: 0.9;
+  margin-bottom: 14px;
+}
+
+.hero-stats {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  font-size: 0.9rem;
+}
+
+.hero-stats span {
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(6px);
+  padding: 6px 14px;
+  border-radius: 20px;
+}
+
+/* ── BODY ── */
+.detalle-wrapper {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 ;
+}
+
+.detalle-body {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 2rem;
+  padding: 2rem 2rem;
+  align-items: start;
+}
+
+/* ── SECCIONES ── */
+.seccion {
+  margin-bottom: 2.5rem;
+}
+
+.seccion-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 1rem;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.detalle-description {
+  color: #555;
+  line-height: 1.75;
+  font-size: 0.97rem;
+}
+
+/* ── GALERÍA FILTROS ── */
+.galeria-filtros {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.filtro-btn {
+  padding: 6px 16px;
+  border-radius: 20px;
+  border: 1.5px solid #ddd;
+  background: #fff;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  color: #444;
+}
+
+.filtro-btn:hover { border-color: #4f8ef7; color: #4f8ef7; }
+
+.filtro-btn.activo {
+  background: #4f8ef7;
+  border-color: #4f8ef7;
+  color: #fff;
+}
+
+/* ── GALERÍA GRID ── */
+.galeria-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 160px;
+  gap: 10px;
+}
+
+.galeria-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.galeria-item--grande {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.galeria-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.galeria-item:hover img { transform: scale(1.06); }
+
+.galeria-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.55), transparent);
+  display: flex;
+  align-items: flex-end;
+  padding: 10px;
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+
+.galeria-item:hover .galeria-overlay { opacity: 1; }
+
+.galeria-overlay span {
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.sin-imagenes {
+  color: #aaa;
+  font-size: 0.9rem;
+  text-align: center;
+  padding: 2rem 0;
+}
+
+/* ── BOOKING CARD ── */
+.detalle-booking {
+  position: sticky;
+  top: 1.5rem;
+}
+
+.booking-card {
+  border: 1.5px solid #e8e8e8;
+  border-radius: 18px;
+  padding: 1.5rem;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.09);
+  background: #fff;
+}
+
+.booking-precio {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin-bottom: 1.25rem;
+}
+
+.precio-valor {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.precio-noche {
+  font-size: 0.9rem;
+  color: #888;
+}
+
+.booking-fechas {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border: 1.5px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.fecha-grupo {
+  padding: 10px 14px;
+}
+
+.fecha-grupo:first-child {
+  border-right: 1.5px solid #ddd;
+}
+
+.fecha-grupo label {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #888;
+  margin-bottom: 4px;
+}
+
+.fecha-grupo input {
+  border: none;
+  outline: none;
+  font-size: 0.9rem;
+  width: 100%;
+  color: #1a1a1a;
+  cursor: pointer;
+}
+
+.booking-resumen {
+  background: #f9f9f9;
+  border-radius: 10px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.resumen-fila {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.resumen-total {
+  font-weight: 700;
+  color: #1a1a1a;
+  border-top: 1px solid #e0e0e0;
+  padding-top: 8px;
+}
+
+.booking-btn {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, #4f8ef7, #3b6fd4);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.15s;
+}
+
+.booking-btn:hover { opacity: 0.92; transform: translateY(-1px); }
+.booking-btn:active { transform: translateY(0); }
+
+.booking-nota {
+  text-align: center;
+  font-size: 0.8rem;
+  color: #aaa;
+  margin-top: 10px;
+}
+
+/* ── MODAL ── */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+.modal-content {
+  position: relative;
+  max-width: 900px;
+  width: 100%;
+}
+
+.modal-content img {
+  width: 100%;
+  max-height: 85vh;
+  object-fit: contain;
+  border-radius: 12px;
+}
+
+.modal-close {
+  position: absolute;
+  top: -14px;
+  right: -14px;
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .detalle-body {
+    grid-template-columns: 1fr;
+  }
+
+  .detalle-booking {
+    position: static;
+    order: -1; /* booking arriba en móvil */
+  }
+
+  .detalle-hero { height: 300px; }
+}
+
+@media (max-width: 600px) {
+  .galeria-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 130px;
+  }
+
+  .galeria-item--grande {
+    grid-column: span 2;
+    grid-row: span 1;
+  }
+
+  .hero-stats { gap: 8px; }
+  .hero-stats span { font-size: 0.8rem; padding: 4px 10px; }
+
+  .booking-fechas { grid-template-columns: 1fr; }
+  .fecha-grupo:first-child { border-right: none; border-bottom: 1.5px solid #ddd; }
+}
+.personas-selector {
+  margin: 1rem 0;
+  padding: 12px 14px;
+  border: 1.5px solid #ddd;
+  border-radius: 10px;
+}
+
+.personas-selector label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #888;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.personas-control {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.personas-control button {
+  width: 30px; height: 30px;
+  border-radius: 50%;
+  border: 1.5px solid #ddd;
+  background: #fff;
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.2s;
+}
+
+.personas-control button:hover { border-color: #4f8ef7; color: #4f8ef7; }
+
+.personas-control span {
+  font-size: 1rem;
+  font-weight: 600;
+  min-width: 20px;
+  text-align: center;
+}
+
+.personas-selector small {
+  display: block;
+  margin-top: 6px;
+  font-size: 0.78rem;
+  color: #aaa;
+}
+/* ── RESEÑAS ── */
+/* Pega esto al final de tu Listadodetallado.css */
+
+.resenas-seccion {
+  margin-top: 0.5rem;
+}
+
+.resenas-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 1.5rem;
+}
+
+.resenas-header .seccion-title {
+  margin-bottom: 0;
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.resenas-promedio {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #f9f9f9;
+  padding: 8px 16px;
+  border-radius: 20px;
+  border: 1.5px solid #f0f0f0;
+}
+
+.promedio-numero {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.promedio-estrellas {
+  display: flex;
+  gap: 2px;
+}
+
+.promedio-total {
+  font-size: 0.85rem;
+  color: #888;
+}
+
+/* ── ESTRELLAS ESTÁTICAS ── */
+.estrella-estatica {
+  font-size: 1rem;
+  color: #ddd;
+  transition: color 0.15s;
+}
+
+.estrella-estatica.llena {
+  color: #f5a623;
+}
+
+/* ── LISTA DE RESEÑAS ── */
+.resenas-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.resena-card {
+  padding: 1.25rem;
+  border: 1.5px solid #f0f0f0;
+  border-radius: 14px;
+  background: #fff;
+  transition: box-shadow 0.2s;
+}
+
+.resena-card:hover {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
+}
+
+.resena-top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.resena-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #4f8ef7, #3b6fd4);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.resena-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.resena-nombre {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.resena-fecha {
+  font-size: 0.8rem;
+  color: #aaa;
+}
+
+.resena-estrellas {
+  display: flex;
+  gap: 2px;
+  margin-left: auto;
+}
+
+.resena-comentario {
+  color: #555;
+  font-size: 0.93rem;
+  line-height: 1.65;
+}
+
+/* ── FORMULARIO NUEVA RESEÑA ── */
+.resena-form {
+  background: #f9f9f9;
+  border: 1.5px solid #f0f0f0;
+  border-radius: 14px;
+  padding: 1.5rem;
+}
+
+.resena-form-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 1rem;
+}
+
+.estrellas-selector {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 1rem;
+}
+
+.estrellas-label {
+  font-size: 0.85rem;
+  color: #666;
+  font-weight: 600;
+}
+
+.estrellas-interactivas {
+  display: flex;
+  gap: 4px;
+}
+
+.estrella-click {
+  font-size: 1.6rem;
+  color: #ddd;
+  cursor: pointer;
+  transition: color 0.15s, transform 0.1s;
+  user-select: none;
+}
+
+.estrella-click:hover,
+.estrella-click.activa {
+  color: #f5a623;
+  transform: scale(1.15);
+}
+
+.resena-textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1.5px solid #ddd;
+  border-radius: 10px;
+  font-size: 0.93rem;
+  color: #1a1a1a;
+  resize: vertical;
+  font-family: inherit;
+  background: #fff;
+  transition: border-color 0.2s;
+  outline: none;
+  margin-bottom: 1rem;
+}
+
+.resena-textarea:focus {
+  border-color: #4f8ef7;
+}
+
+.resena-textarea::placeholder {
+  color: #bbb;
+}
+
+.resena-exito {
+  font-size: 0.88rem;
+  color: #2ecc71;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.resena-btn {
+  padding: 12px 28px;
+  background: linear-gradient(135deg, #4f8ef7, #3b6fd4);
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.15s;
+}
+
+.resena-btn:hover:not(:disabled) {
+  opacity: 0.92;
+  transform: translateY(-1px);
+}
+
+.resena-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* ── RESPONSIVE RESEÑAS ── */
+@media (max-width: 600px) {
+  .resenas-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .resena-top {
+    flex-wrap: wrap;
+  }
+
+  .resena-estrellas {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .estrellas-selector {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+}
+

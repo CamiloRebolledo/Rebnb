@@ -1,0 +1,431 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+}
+
+/* HEADER */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  padding: 12px 40px;
+  background: white;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+.header-inner {
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.header section:first-child {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+}
+
+/* LOGO */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  color: #FF5A5F;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.logo img {
+  width: 35px;
+  height: 35px;
+}
+
+/* NAV */
+.contain {
+  display: flex;
+  gap: 30px;
+  flex-shrink: 0;
+}
+
+
+.contain a {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+  transition: transform 0.2s ease;
+  white-space: nowrap;
+}
+
+.contain a:hover {
+  transform: scale(1.05);
+}
+
+.contain img {
+  width: 40px;
+  height: 40px;
+}
+.btn-cancelar-reserva {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+  padding: 6px 12px;
+  background-color: #fff;
+  color: #e00b41;
+  border: 1px solid #e00b41;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.btn-cancelar-reserva:hover {
+  background-color: #e00b41;
+  color: #fff;
+}
+
+.btn-cancelar-reserva:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* RIGHT */
+.contain2 {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.host {
+  text-decoration: none;
+  color: black;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-size: 14px;
+  padding: 4px 0;
+  white-space: nowrap;
+}
+
+/* USER */
+.user {
+  width: 35px;
+  height: 35px;
+  background: black;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* HAMBURGER */
+.hamburger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  background-color: #EBE6E4;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* MOBILE MENU */
+.mobile-menu {
+  position: absolute;
+  top: 45px;
+  right: 0;
+  background: white;
+  border-radius: 12px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.12);
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
+  transition: all 0.3s ease;
+  overflow-y: auto;
+  max-height: 260px;
+  min-width: 260px;
+  z-index: 999;
+}
+
+.mobile-menu.active {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.mobile-menu a  {
+  text-decoration: none;
+  color: black;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-size: 14px;
+  padding: 4px 0;
+  white-space: nowrap;
+}
+
+.mobile-menu a:hover {
+  color: #FF5A5F;
+}
+
+/* SEARCH */
+.Search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #f7f7f7;
+  border-radius: 999px;
+  padding: 12px 18px;
+  width: 100%;
+  max-width: 500px;
+  margin: 10px auto 0;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.06);
+  transition: all 0.2s ease;
+}
+
+.Search:hover {
+  box-shadow: 0 2px 4px rgba(0,0,0,0.12), 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.Search input {
+  border: none;
+  outline: none;
+  background: transparent;
+  width: 100%;
+  font-size: 14px;
+  color: #222;
+}
+
+.Search input::placeholder {
+  color: #717171;
+}
+
+.icon {
+  width: 18px;
+  height: 18px;
+  color: #717171;
+  flex-shrink: 0;
+}
+
+/* ===================== */
+/* 📱 TABLET */
+/* ===================== */
+@media (max-width: 900px) {
+  .header {
+    padding: 10px 20px;
+  }
+
+  .contain {
+    gap: 16px;
+  }
+
+  .contain img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .host {
+    display: none;
+  }
+}
+
+/* ===================== */
+/* 📱 MOBILE */
+/* ===================== */
+@media (max-width: 600px) {
+  .header {
+    padding: 10px 15px;
+  }
+
+  /* Ocultar nav en móvil */
+  .contain {
+    display: flex;
+  }
+  .contain a:not(:first-child) {
+    display: none;
+  }
+
+  .header section:first-child {
+    gap: 10px;
+  }
+
+  .header section:first-child {
+    gap: 10px;
+  }
+
+  .Search {
+    padding: 10px 14px;
+    max-width: 100%;
+  }
+  .reservas-panel {
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90vw;
+    max-width: 320px;
+  }
+}
+.reservas-panel {
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 0;
+  width: 320px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+  padding: 1.25rem;
+  z-index: 999;
+  max-height: 420px;
+  overflow-y: auto;
+}
+
+.reservas-panel h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #1a1a1a;
+}
+
+.reservas-empty {
+  color: #aaa;
+  font-size: 0.9rem;
+  text-align: center;
+  padding: 1rem 0;
+}
+
+.reserva-item {
+  display: flex;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.reserva-item:last-child { border-bottom: none; }
+
+.reserva-item img {
+  width: 64px;
+  height: 64px;
+  object-fit: cover;
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+
+.reserva-info { flex: 1; }
+
+.reserva-title {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #1a1a1a;
+  margin-bottom: 3px;
+}
+
+.reserva-fechas, .reserva-personas, .reserva-total {
+  font-size: 0.78rem;
+  color: #666;
+  margin-bottom: 2px;
+}
+
+.reserva-total { color: #4f8ef7; font-weight: 600; }
+
+.favoritos-panel {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  width: 220px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  padding: 0.75rem;
+  z-index: 999;
+  max-height: 320px;
+  overflow-y: auto;
+}
+
+.favoritos-panel h3 {
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin: 0 0 0.6rem;
+  color: #1a1a1a;
+}
+
+.favoritos-panel .reserva-item {
+  display: flex;
+  gap: 8px;
+  padding: 7px 0;
+  border-bottom: 0.5px solid #f0f0f0;
+}
+
+.favoritos-panel .reserva-item:last-child {
+  border-bottom: none;
+}
+
+.favoritos-panel .reserva-item img {
+  width: 52px;
+  height: 52px;
+  object-fit: cover;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.favoritos-panel .reserva-item div {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.favoritos-panel .reserva-item p:first-child {
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: #1a1a1a;
+  margin: 0 0 2px;
+}
+
+.favoritos-panel .reserva-item p:nth-child(2) {
+  font-size: 0.74rem;
+  font-weight: 400;
+  color: #555;
+  margin: 0 0 5px;
+}
+
+.favoritos-panel button {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: none;
+  border: 0.5px solid #FF5A5F;
+  color: #FF5A5F;
+  border-radius: 6px;
+  padding: 3px 7px;
+  font-size: 0.68rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  width: fit-content;
+}
+
+.favoritos-panel button:hover {
+  background: #FF5A5F;
+  color: white;
+}

@@ -1,0 +1,144 @@
+/* CONTENEDOR GRID */
+.grid {
+  display: grid;
+  gap: 16px;
+  padding: 16px;
+
+  /* Mobile first */
+  grid-template-columns: 1fr;
+}
+
+/* TABLET */
+@media (min-width: 600px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* TABLET GRANDE */
+@media (min-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* DESKTOP */
+@media (min-width: 1200px) {
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* CARD */
+.card {
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: all 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* IMAGEN */
+.card-img-container {
+  position: relative;
+  width: 100%;
+  height: 180px;
+}
+
+/* ALTURA RESPONSIVE DE IMAGEN */
+@media (max-width: 599px) {
+  .card-img-container {
+    height: 200px;
+  }
+}
+
+@media (min-width: 900px) {
+  .card-img-container {
+    height: 170px;
+  }
+}
+
+.card-img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* BOTÓN FAVORITO */
+.fav-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(255,255,255,0.9);
+  border: none;
+  border-radius: 50%;
+  padding: 6px 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* BODY */
+.card-body {
+  padding: 12px 14px;
+}
+.card-body a{
+  text-decoration: none;
+}
+/* TITULO */
+.card-body h3 {
+  font-size: 15px;
+  margin: 0;
+  color: #222;
+}
+
+
+/* TABLET */
+@media (min-width: 600px) {
+  .card-body h3 {
+    font-size: 16px;
+  }
+}
+
+/* DESKTOP */
+@media (min-width: 1200px) {
+  .card-body h3 {
+    font-size: 17px;
+  }
+}
+
+/* UBICACIÓN */
+.location {
+  font-size: 13px;
+  color: #717171;
+  margin: 4px 0;
+}
+
+@media (min-width: 600px) {
+  .location {
+    font-size: 14px;
+  }
+}
+
+/* PRECIO */
+.price {
+  font-weight: bold;
+  font-size: 14px;
+  margin-top: 6px;
+}
+
+.price span {
+  font-weight: normal;
+  color: #717171;
+}
+
+/* HOVER SOLO EN DISPOSITIVOS CON MOUSE */
+@media (hover: hover) {
+  .card:hover {
+    transform: translateY(-6px);
+  }
+}

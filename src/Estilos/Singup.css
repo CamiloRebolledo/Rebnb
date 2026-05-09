@@ -1,0 +1,159 @@
+/* Fondo general */
+body {
+  margin: 0;
+  background: #f7f7f7;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Contenedor centrado */
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* Card */
+.auth-card {
+  width: 100%;
+  max-width: 420px;
+
+  background: #fff;
+  padding: 32px;
+  border-radius: 20px;
+
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08),
+              0 4px 10px rgba(0, 0, 0, 0.04);
+
+  text-align: center;
+}
+
+/* Título */
+.auth-title {
+  margin-bottom: 24px;
+  font-size: 24px;
+  font-weight: 600;
+  color: #222;
+}
+
+/* Form */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Inputs */
+.auth-input {
+  padding: 14px 16px;
+
+  border-radius: 12px;
+  border: 1px solid #ddd;
+
+  font-size: 14px;
+  outline: none;
+
+  transition: all 0.2s ease;
+}
+
+/* Focus */
+.auth-input:focus {
+  border-color: #ff385c;
+  box-shadow: 0 0 0 3px rgba(255, 56, 92, 0.15);
+}
+
+/* Botón */
+.auth-button {
+  margin-top: 10px;
+  padding: 14px;
+
+  border: none;
+  border-radius: 12px;
+
+  background: #ff385c;
+  color: white;
+
+  font-weight: 600;
+  font-size: 15px;
+
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.auth-button:hover {
+  background: #e03150;
+}
+
+.auth-button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+/* Error */
+.auth-error {
+  color: #ff385c;
+  font-size: 13px;
+  margin-top: -5px;
+}
+
+/* Footer */
+.auth-footer {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #555;
+}
+
+.auth-footer a {
+  color: #ff385c;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.auth-footer a:hover {
+  text-decoration: underline;
+}
+
+
+
+/* 📱 RESPONSIVE */
+
+/* Tablets */
+@media (max-width: 768px) {
+  .auth-card {
+    padding: 24px;
+    border-radius: 16px;
+  }
+
+  .auth-title {
+    font-size: 22px;
+  }
+}
+
+/* Móviles */
+@media (max-width: 480px) {
+  .auth-container {
+    align-items: flex-start;
+    padding-top: 60px;
+  }
+
+  .auth-card {
+    padding: 20px;
+    border-radius: 14px;
+  }
+
+  .auth-title {
+    font-size: 20px;
+  }
+
+  .auth-input {
+    padding: 12px;
+    font-size: 13px;
+  }
+
+  .auth-button {
+    padding: 12px;
+    font-size: 14px;
+  }
+}

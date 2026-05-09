@@ -15,6 +15,16 @@ function ReservasSesion() {
 
   async function getReservas() {
     setLoading(true)
+ 
+    // 1. Obtener el usuario actualmente logueado
+    const { data: { user } } = await supabase.auth.getUser()
+ 
+    if (!user) {
+      setLoading(false)
+      return
+    }
+ 
+    // 2. Filtrar reservas por user_id del usuario logueado
     const { data } = await supabase
       .from('reservas')
       .select(`
@@ -25,8 +35,9 @@ function ReservasSesion() {
         total,
         listados ( title, image, location )
       `)
+      .eq('user_id', user.id)
       .order('created_at', { ascending: false })
-
+ 
     if (data) setReservas(data)
     setLoading(false)
   }
